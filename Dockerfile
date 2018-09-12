@@ -42,11 +42,13 @@ USER buildozer
 # download all needed andorid dependencies:
 RUN set -x \
     && cd /buildozer/kivy_hello_world \
-    && buildozer android release \
+    && buildozer android debug \
     && ls -la \
     && cd .. \
-    && echo rm -rf kivy_hello_world
+    && echo rm -rf kivy_hello_world || /bin/true
 
-VOLUME /buildozer/
+#VOLUME /buildozer/
 
 WORKDIR /buildozer/
+
+CMD tail -f /var/log/faillog
