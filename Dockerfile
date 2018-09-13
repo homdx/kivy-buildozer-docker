@@ -45,7 +45,7 @@ RUN set -x \
     && buildozer android debug \
     && ls -la \
     && cd .. \
-    && echo rm -rf kivy_hello_world || cp /buildozer/kivy_hello_world/.buildozer/android/platform/build/dists/kivy_hello_world/build/outputs/apk/kivy_hello_world-debug.apk /buildozer
+    && echo rm -rf kivy_hello_world || cp /buildozer/kivy_hello_world/.buildozer/android/platform/build/dists/kivy_hello_world/bin/HelloWorld-0.1-debug.apk /buildozer
 
 #VOLUME /buildozer/
 
