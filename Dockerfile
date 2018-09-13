@@ -23,7 +23,7 @@ RUN set -x \
     && apt-get -y install git openjdk-8-jdk --no-install-recommends zlib1g-dev \
     && apt-get autoremove \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    && echo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # The buildozer VM used Cython v0.25 and buildozer v0.32
 RUN set -x \
@@ -45,7 +45,8 @@ RUN set -x \
     && buildozer android debug \
     && ls -la \
     && cd .. \
-    && echo rm -rf kivy_hello_world || /bin/true
+    && echo rm -rf kivy_hello_world || cp /buildozer/kivy_hello_world/.buildozer/android/platform/build/dists/kivy_hello_world/build/outputs/apk/kivy_hello_world-debug.apk /buildozer
+    /bin/true
 
 #VOLUME /buildozer/
 
